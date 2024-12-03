@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  const [error, setError] = useState("");
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -10,9 +12,25 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    const user = {name, photo, email, password}
-    console.log(user)
+    const user = { name, photo, email, password };
 
+    const lowerCase = /[a-z]/;
+    if(!lowerCase.test(password)){
+        setError('Password must contain at least one lowercase letter')
+        return;
+    }
+
+    const upperCase = /[A-Z]/;
+    if(!upperCase.test(password)){
+        setError('Password must contain at least one uppercase letter')
+        return;
+    }
+    
+    if (password.length < 6) {
+        setError("Password must at least 6 character");
+        return;
+    }
+    console.log(user);
   };
   return (
     <div className="hero min-h-[85vh] -z-50">
@@ -67,7 +85,7 @@ const Register = () => {
               required
             />
           </div>
-
+          <p className="text-red-600">{error}</p>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Register</button>
           </div>
