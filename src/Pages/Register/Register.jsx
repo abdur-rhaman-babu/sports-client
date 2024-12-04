@@ -7,17 +7,20 @@ import { toast } from "react-toastify";
 const Register = () => {
   // const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser, setUser, userUpdateProfile, error, setError } =
+  const { createUser, setUser, setLoading, userUpdateProfile, error, setError } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
+    
+    setLoading(true)
 
     const form = e.target;
     const name = form.name.value;
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+
 
     const lowerCase = /[a-z]/;
     if (!lowerCase.test(password)) {
@@ -47,10 +50,12 @@ const Register = () => {
         userUpdateProfile(profile);
         navigate("/");
         toast.success("registered successfully");
+        setLoading(false)
       })
       .catch((err) => {
         if (err) {
           toast.error("User already exsist");
+          setLoading(true)
         }
       });
   };

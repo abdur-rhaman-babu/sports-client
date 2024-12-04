@@ -9,6 +9,7 @@ import MyEquipList from "../Pages/MyEquipList/MyEquipList";
 import AuthLayout from "../components/AuthLayout/AuthLayout";
 import Login from "./../Pages/Login/Login";
 import Register from "./../Pages/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -25,11 +26,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addEquip",
-        element: <AddEquip />,
+        element: <PrivateRoute><AddEquip /></PrivateRoute>,
       },
       {
         path: "/myEquipList",
-        element: <MyEquipList />,
+        element: <PrivateRoute><MyEquipList /></PrivateRoute>,
       },
 
       {

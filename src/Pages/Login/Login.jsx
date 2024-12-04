@@ -5,7 +5,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { loginUser, loginWithGoogle, user, setUser } = useContext(AuthContext);
+  const { loginUser, loginWithGoogle, setLoading, setUser } = useContext(AuthContext);
   const navigate = useNavigate()
   const handleLogin = (e) => {
     e.preventDefault();
@@ -14,16 +14,20 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    setLoading(true)
+
     loginUser(email, password)
       .then((result) => {
         console.log(result.user)
         setUser(result.user);
+        setLoading(false)
         navigate('/')
         toast.success("Logged In successfull");
       })
       .catch((err) => {
           if(err){
             toast.error("Invalid email or password");
+            setLoading(false)
           }
       });
   };
