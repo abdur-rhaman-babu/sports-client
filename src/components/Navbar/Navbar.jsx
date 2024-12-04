@@ -6,8 +6,17 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
-  const { loginUser, createUser, loginWithGoogle, user, setUser } =
-    useContext(AuthContext);
+  const { user, logoutUser } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logoutUser()
+      .then(() => {
+        alert("signout succfull");
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
   return (
     <div className="navbar bg-base-100 shadow-lg md:px-5 lg:px-16 z-50 fixed top-0 left-0 right-0">
       <div className="navbar-start">
@@ -33,14 +42,23 @@ const Navbar = () => {
             </li>
             <div>
               {user?.email ? (
-                <img src={user?.photoURL} alt="" />
+                <div className="">
+                  <button
+                    className="border-2 rounded-lg w-3/4 py-1"
+                    onClick={handleSignOut}
+                  >
+                    Signout
+                  </button>
+                  {/* <img src={user?.photoURL} alt="" /> */}
+                  <p>{user?.email}</p>
+                </div>
               ) : (
-                <ul className="flex items-center">
+                <ul className="space-y-2">
                   {" "}
-                  <li>
+                  <li className="border-2">
                     <NavLink to="/login">Login</NavLink>
                   </li>
-                  <li>
+                  <li className="border-2">
                     <NavLink to="/register">Register</NavLink>
                   </li>
                 </ul>
@@ -69,14 +87,23 @@ const Navbar = () => {
           </li>
           <div>
             {user?.email ? (
-              <img src={user?.photoURL} alt="" />
+              <div className="flex items-center gap-2">
+                <button
+                  className="border-2 p-2 rounded-lg"
+                  onClick={handleSignOut}
+                >
+                  Signout
+                </button>
+                {/* <img src={user?.photoURL} alt="" /> */}
+                <p>{user?.email}</p>
+              </div>
             ) : (
-              <ul className="flex items-center">
+              <ul className="flex items-center gap-4">
                 {" "}
-                <li>
+                <li className="border-2 rounded-lg">
                   <NavLink to="/login">Login</NavLink>
                 </li>
-                <li>
+                <li className="border-2 rounded-lg">
                   <NavLink to="/register">Register</NavLink>
                 </li>
               </ul>
