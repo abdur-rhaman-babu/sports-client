@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const { createUser } = useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -14,7 +16,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    const user = { name, photo, email, password };
+    // const user = { name, photo, email, password };
 
     const lowerCase = /[a-z]/;
     if (!lowerCase.test(password)) {
@@ -32,7 +34,12 @@ const Register = () => {
       setError("Password must at least 6 character");
       return;
     }
-    console.log(user);
+    // console.log(user);
+    createUser(email, password)
+    .then((result) => console.log(result.user))
+    .catch(error=>{
+      console.log('ERROR', error)
+    })
   };
   return (
     <div className="hero min-h-[85vh] -z-50">
