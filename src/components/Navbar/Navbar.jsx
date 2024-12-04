@@ -11,7 +11,7 @@ const Navbar = () => {
   const handleSignOut = () => {
     logoutUser()
       .then(() => {
-        alert("signout succfull");
+        alert("signout succssfull");
       })
       .catch((error) => {
         console.log("error", error);
@@ -49,8 +49,8 @@ const Navbar = () => {
                   >
                     Signout
                   </button>
-                  {/* <img src={user?.photoURL} alt="" /> */}
-                  <p>{user?.email}</p>
+                  <img className="w-16 h-16 mt-4 mx-auto rounded-lg" src={user?.photoURL} alt="" />
+                  
                 </div>
               ) : (
                 <ul className="space-y-2">
@@ -94,8 +94,7 @@ const Navbar = () => {
                 >
                   Signout
                 </button>
-                {/* <img src={user?.photoURL} alt="" /> */}
-                <p>{user?.email}</p>
+                <img className="w-10 rounded-full h-10 border-2 border-black" src={user?.photoURL} alt="" />
               </div>
             ) : (
               <ul className="flex items-center gap-4">

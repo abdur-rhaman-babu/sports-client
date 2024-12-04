@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser, user, setUser } = useContext(AuthContext);
+  const { createUser, setUser, userUpdateProfile, error, setError } = useContext(AuthContext);
+  const navigate = useNavigate()
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -15,8 +16,6 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-
-    // const user = { name, photo, email, password };
 
     const lowerCase = /[a-z]/;
     if (!lowerCase.test(password)) {
@@ -34,11 +33,18 @@ const Register = () => {
       setError("Password must at least 6 character");
       return;
     }
+
+    const profile = {
+      displayName: name,
+      photoURL: photo
+    }
     // console.log(user);
     createUser(email, password)
     .then((result) => {
-      console.log(result.user)
       setUser(result.user);
+      userUpdateProfile(profile)
+      // console.log(result.user)
+      navigate('/')
     })
     .catch(error=>{
       console.log('ERROR', error)
