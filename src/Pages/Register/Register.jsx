@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Register = () => {
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -15,20 +17,20 @@ const Register = () => {
     const user = { name, photo, email, password };
 
     const lowerCase = /[a-z]/;
-    if(!lowerCase.test(password)){
-        setError('Password must contain at least one lowercase letter')
-        return;
+    if (!lowerCase.test(password)) {
+      setError("Password must contain at least one lowercase letter");
+      return;
     }
 
     const upperCase = /[A-Z]/;
-    if(!upperCase.test(password)){
-        setError('Password must contain at least one uppercase letter')
-        return;
+    if (!upperCase.test(password)) {
+      setError("Password must contain at least one uppercase letter");
+      return;
     }
-    
+
     if (password.length < 6) {
-        setError("Password must at least 6 character");
-        return;
+      setError("Password must at least 6 character");
+      return;
     }
     console.log(user);
   };
@@ -73,17 +75,23 @@ const Register = () => {
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control relative">
             <label className="label">
               <span className="label-text">Password</span>
             </label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="password"
               className="input input-bordered"
               required
             />
+            <i
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-2 top-12 mt-1"
+            >
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </i>
           </div>
           <p className="text-red-600">{error}</p>
           <div className="form-control mt-6">

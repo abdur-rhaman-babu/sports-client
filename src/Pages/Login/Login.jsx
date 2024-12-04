@@ -1,3 +1,4 @@
+import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -7,9 +8,8 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    const agree = form.agree.value;
 
-    const user = { email, password, agree };
+    const user = { email, password };
     console.log(user);
   };
   return (
@@ -46,9 +46,9 @@ const Login = () => {
               </a>
             </label>
           </div>
-          <div className="flex item-center gap-2">
-            <input type="checkbox" name="agree" id="" required />
-            <span className="text-xs">Terms and Condition?</span>
+          <div className="flex item-center justify-center p-2 gap-2 border rounded-lg cursor-pointer">
+            <i><FcGoogle size={25} /></i>
+            <span className="font-semibold">Login with Google</span>
           </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>
