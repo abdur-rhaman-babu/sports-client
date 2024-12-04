@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -9,8 +12,14 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    const user = { email, password };
-    console.log(user);
+    // const user = { email, password };
+    // console.log(user);
+
+    loginUser(email, password)
+    .then(result=> console.log(result.user))
+    .catch(error=> {
+      console.log('ERROR', error)
+    })
   };
   return (
     <div className="hero min-h-screen -z-50">
@@ -47,7 +56,9 @@ const Login = () => {
             </label>
           </div>
           <div className="flex item-center justify-center p-2 gap-2 border rounded-lg cursor-pointer">
-            <i><FcGoogle size={25} /></i>
+            <i>
+              <FcGoogle size={25} />
+            </i>
             <span className="font-semibold">Login with Google</span>
           </div>
           <div className="form-control mt-6">
