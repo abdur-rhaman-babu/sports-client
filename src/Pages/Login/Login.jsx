@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, loginWithGoogle, user, setUser } = useContext(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -12,15 +12,27 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    // const user = { email, password };
-    // console.log(user);
-
     loginUser(email, password)
-    .then(result=> console.log(result.user))
-    .catch(error=> {
-      console.log('ERROR', error)
-    })
+      .then((result) => {
+        console.log(result.user)
+        setUser(result.user);
+      })
+      .catch((error) => {
+        console.log("ERROR", error);
+      });
   };
+
+  const handleGoogleLogin = () => {
+    loginWithGoogle()
+    .then((result) => {
+      console.log(result.user)
+      setUser(result.user);
+    })
+      .catch((error) => {
+        console.log("Error", error);
+      });
+  };
+
   return (
     <div className="hero min-h-screen -z-50">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -55,7 +67,10 @@ const Login = () => {
               </a>
             </label>
           </div>
-          <div className="flex item-center justify-center p-2 gap-2 border rounded-lg cursor-pointer">
+          <div
+            onClick={handleGoogleLogin}
+            className="flex item-center justify-center p-2 gap-2 border rounded-lg cursor-pointer"
+          >
             <i>
               <FcGoogle size={25} />
             </i>

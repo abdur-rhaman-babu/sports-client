@@ -2,8 +2,12 @@ import { NavLink } from "react-router-dom";
 import logo from "../../assets/image/logo.png";
 import { CiLight } from "react-icons/ci";
 import { FaBars } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { loginUser, createUser, loginWithGoogle, user, setUser } =
+    useContext(AuthContext);
   return (
     <div className="navbar bg-base-100 shadow-lg md:px-5 lg:px-16 z-50 fixed top-0 left-0 right-0">
       <div className="navbar-start">
@@ -27,12 +31,21 @@ const Navbar = () => {
             <li>
               <NavLink to="/myEquipList">My Equipment List</NavLink>
             </li>
-            <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
-              <NavLink to="/register">Register</NavLink>
-            </li>
+            <div>
+              {user?.email ? (
+                <img src={user?.photoURL} alt="" />
+              ) : (
+                <ul className="flex items-center">
+                  {" "}
+                  <li>
+                    <NavLink to="/login">Login</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/register">Register</NavLink>
+                  </li>
+                </ul>
+              )}
+            </div>
           </ul>
         </div>
         <div className="flex items-center gap-2">
@@ -54,12 +67,21 @@ const Navbar = () => {
           <li>
             <NavLink to="/myEquipList">My Equipment List</NavLink>
           </li>
-          <li>
-            <NavLink to="/login">Login</NavLink>
-          </li>
-          <li>
-            <NavLink to="/register">Register</NavLink>
-          </li>
+          <div>
+            {user?.email ? (
+              <img src={user?.photoURL} alt="" />
+            ) : (
+              <ul className="flex items-center">
+                {" "}
+                <li>
+                  <NavLink to="/login">Login</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/register">Register</NavLink>
+                </li>
+              </ul>
+            )}
+          </div>
         </ul>
       </div>
       <div className="navbar-end">
