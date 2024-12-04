@@ -2,12 +2,14 @@ import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
   // const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser, setUser, userUpdateProfile, error, setError } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const { createUser, setUser, userUpdateProfile, error, setError } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -36,19 +38,21 @@ const Register = () => {
 
     const profile = {
       displayName: name,
-      photoURL: photo
-    }
+      photoURL: photo,
+    };
     // console.log(user);
     createUser(email, password)
-    .then((result) => {
-      setUser(result.user);
-      userUpdateProfile(profile)
-      // console.log(result.user)
-      navigate('/')
-    })
-    .catch(error=>{
-      console.log('ERROR', error)
-    })
+      .then((result) => {
+        setUser(result.user);
+        userUpdateProfile(profile);
+        navigate("/");
+        toast.success("registered successfully");
+      })
+      .catch((err) => {
+        if (err) {
+          toast.error("User already exsist");
+        }
+      });
   };
   return (
     <div className="hero min-h-[85vh] -z-50">

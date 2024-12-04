@@ -4,14 +4,16 @@ import { CiLight } from "react-icons/ci";
 import { FaBars } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-
+import { Tooltip } from "react-tooltip";
+import 'react-tooltip/dist/react-tooltip.css'
+import { toast } from "react-toastify";
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
 
   const handleSignOut = () => {
     logoutUser()
       .then(() => {
-        alert("signout succssfull");
+        toast.success("Logout succssfull");
       })
       .catch((error) => {
         console.log("error", error);
@@ -49,8 +51,15 @@ const Navbar = () => {
                   >
                     Signout
                   </button>
-                  <img className="w-16 h-16 mt-4 mx-auto rounded-lg" src={user?.photoURL} alt="" />
-                  
+                  <img id="my-anchor-element"
+                    className="w-16 h-16 mt-4 mx-auto rounded-lg"
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                  <Tooltip
+                    anchorSelect="#my-anchor-element"
+                    content={user?.displayName}
+                  /> 
                 </div>
               ) : (
                 <ul className="space-y-2">
@@ -94,7 +103,15 @@ const Navbar = () => {
                 >
                   Signout
                 </button>
-                <img className="w-10 rounded-full h-10 border-2 border-black" src={user?.photoURL} alt="" />
+                <img id="my-anchor-element"
+                  className="w-10 rounded-full h-10 border-2 cursor-pointer border-black"
+                  src={user?.photoURL}
+                  alt=""
+                />
+                  <Tooltip
+                    anchorSelect="#my-anchor-element"
+                    content={user?.displayName}
+                  />
               </div>
             ) : (
               <ul className="flex items-center gap-4">

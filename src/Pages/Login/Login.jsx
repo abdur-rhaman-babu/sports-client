@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { loginUser, loginWithGoogle, user, setUser } = useContext(AuthContext);
@@ -18,9 +19,12 @@ const Login = () => {
         console.log(result.user)
         setUser(result.user);
         navigate('/')
+        toast.success("Logged In successfull");
       })
-      .catch((error) => {
-        console.log("ERROR", error);
+      .catch((err) => {
+          if(err){
+            toast.error("Invalid email or password");
+          }
       });
   };
 
@@ -30,6 +34,7 @@ const Login = () => {
       console.log(result.user)
       setUser(result.user);
       navigate('/')
+      toast.success("Logged In successfull");
     })
       .catch((error) => {
         console.log("Error", error);
