@@ -23,7 +23,8 @@ const MyEquipList = () => {
           <EquipCard
             key={product._id}
             product={product}
-            setProduct={setProducts}
+            setProducts={setProducts}
+            products={products}
           />
         ))}
       </div>

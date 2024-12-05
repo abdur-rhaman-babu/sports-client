@@ -15,20 +15,23 @@ const EquipCard = ({ product, products, setProducts }) => {
     user_email,
     _id,
   } = product;
-//   console.log(product)
-const handleDeleteCard = (id, email) =>{
-    console.log(id, email)
-    fetch(`http://localhost:2500/products/email/${email}/${id}`,{
-        method:'DELETE'
+  //   console.log(product)
+  const handleDeleteCard = (id, email) => {
+    console.log(id, email);
+    fetch(`http://localhost:2500/products/email/${email}/${id}`, {
+      method: "DELETE",
     })
-    .then(res=> res.json())
-    .then(data=> {
-        console.log(data)
-    })
-}
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount) {
+          const remaining = products.filter((product) => product._id !== id);
+          setProducts(remaining);
+        }
+      });
+  };
   return (
     <div className="flex flex-col p-5 md:flex-row border rounded-lg shadow-lg overflow-hidden bg-white max-w-2xl mx-auto">
-
       <div className="w-full md:w-1/3">
         <img
           src={photo}
@@ -37,7 +40,6 @@ const handleDeleteCard = (id, email) =>{
         />
       </div>
 
- 
       <div className="flex flex-col p-4 w-full md:w-2/3">
         <h2 className="text-xl font-bold text-gray-800 mb-2">{item_name}</h2>
         <p className="text-sm text-gray-500">Category: {category}</p>
@@ -79,9 +81,16 @@ const handleDeleteCard = (id, email) =>{
         <div className="mt-4 text-sm text-gray-500">
           <p>Submitted by: {user_name}</p>
         </div>
-        <div className="flex gap-3 items-center mt-3"> 
-            <button className="text-green-400"><FaRegEdit size={30}/></button>
-            <button onClick={()=>handleDeleteCard(_id, user_email)} className="text-red-600"><FaDeleteLeft size={30}/></button>
+        <div className="flex gap-3 items-center mt-3">
+          <button className="text-green-400">
+            <FaRegEdit size={30} />
+          </button>
+          <button
+            onClick={() => handleDeleteCard(_id, user_email)}
+            className="text-red-600"
+          >
+            <FaDeleteLeft size={30} />
+          </button>
         </div>
       </div>
     </div>
