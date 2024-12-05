@@ -1,6 +1,7 @@
 import { FaRegEdit } from "react-icons/fa";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const EquipCard = ({ product, products, setProducts }) => {
   const {
@@ -19,15 +20,33 @@ const EquipCard = ({ product, products, setProducts }) => {
   //   console.log(product)
   const handleDeleteCard = (id, email) => {
     console.log(id, email);
-    fetch(`http://localhost:2500/products/email/${email}/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount) {
-          const remaining = products.filter((product) => product._id !== id);
-          setProducts(remaining);
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+        fetch(`http://localhost:2500/products/email/${email}/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount) {
+              const remaining = products.filter((product) => product._id !== id);
+              setProducts(remaining);
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+            }
+          });
         }
       });
   };

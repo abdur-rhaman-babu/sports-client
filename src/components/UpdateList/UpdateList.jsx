@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateList = () => {
   const { user } = useContext(AuthContext);
@@ -36,7 +37,7 @@ const UpdateList = () => {
     const user_name = form.user_name.value;
     const description = form.description.value;
 
-    const UpdateProduct = {
+    const updateProduct = {
       photo,
       item_name,
       category,
@@ -50,8 +51,26 @@ const UpdateList = () => {
       description,
     };
 
-    console.log(UpdateProduct);
-
+    fetch(`http://localhost:2500/products/email/${user.email}/${_id}`,{
+        method:'PUT',
+        headers:{
+            'content-type': 'application/json'
+        },
+        body:JSON.stringify(updateProduct)
+    })
+    .then(res=> res.json())
+    .then(data=>{
+        console.log(data)
+        if(data.modifiedCount > 0){
+            navigate('/myEquipList')
+            Swal.fire({
+                title: "success",
+                text: "Equipment successfully updated",
+                icon: "success"
+              });
+        }
+    })
+    // console.log(updateProduct);
   };
   return (
     <div className="my-10">

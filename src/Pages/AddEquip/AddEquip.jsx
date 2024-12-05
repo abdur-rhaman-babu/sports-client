@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddEquip = () => {
   const { user } = useContext(AuthContext);
@@ -46,6 +47,11 @@ const AddEquip = () => {
     .then(res=> res.json())
     .then(data=>{
         console.log(data)
+        Swal.fire({
+          title: "success",
+          text: "Equipment successfully added",
+          icon: "success"
+        });
         navigate(-1)
     })
   };
