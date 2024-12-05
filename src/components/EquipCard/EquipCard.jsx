@@ -11,10 +11,21 @@ const EquipCard = ({ product, products, setProducts }) => {
     processing_time,
     stock_status,
     rating,
-    user_email,
     user_name,
-    description,
+    user_email,
+    _id,
   } = product;
+//   console.log(product)
+const handleDeleteCard = (id, email) =>{
+    console.log(id, email)
+    fetch(`http://localhost:2500/products/email/${email}/${id}`,{
+        method:'DELETE'
+    })
+    .then(res=> res.json())
+    .then(data=> {
+        console.log(data)
+    })
+}
   return (
     <div className="flex flex-col p-5 md:flex-row border rounded-lg shadow-lg overflow-hidden bg-white max-w-2xl mx-auto">
 
@@ -65,14 +76,12 @@ const EquipCard = ({ product, products, setProducts }) => {
           <span className="ml-2 text-sm text-gray-600">({rating}/5)</span>
         </div>
 
-        {/* <p className="text-gray-700 mt-2 line-clamp-3">{description}</p> */}
-
         <div className="mt-4 text-sm text-gray-500">
           <p>Submitted by: {user_name}</p>
         </div>
         <div className="flex gap-3 items-center mt-3"> 
             <button className="text-green-400"><FaRegEdit size={30}/></button>
-            <button className="text-red-600"><FaDeleteLeft size={30}/></button>
+            <button onClick={()=>handleDeleteCard(_id, user_email)} className="text-red-600"><FaDeleteLeft size={30}/></button>
         </div>
       </div>
     </div>
