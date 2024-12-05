@@ -9,7 +9,7 @@ import 'react-tooltip/dist/react-tooltip.css'
 import { toast } from "react-toastify";
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
-  console.log(user?.email)
+  // console.log(user?.email)
 
   const handleSignOut = () => {
     logoutUser()
@@ -41,7 +41,7 @@ const Navbar = () => {
               <NavLink to="/addEquip">Add Equipment</NavLink>
             </li>
             <li>
-            <NavLink to={`/myEquipList/email/${user?.email}`}>My Equipment List</NavLink>
+            <NavLink to="/myEquipList">My Equipment List</NavLink>
             </li>
             <div>
               {user?.email ? (
@@ -93,7 +93,7 @@ const Navbar = () => {
             <NavLink to="/addEquip">Add Equipment</NavLink>
           </li>
           <li>
-          <NavLink to={`/myEquipList/email/${user?.email}`}>My Equipment List</NavLink>   
+          <NavLink to="/myEquipList">My Equipment List</NavLink>  
           </li>
           <div>
             {user?.email ? (

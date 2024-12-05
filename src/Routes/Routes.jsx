@@ -32,14 +32,12 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myEquipList/email/:email",
+        path: "/myEquipList",
         element: (
           <PrivateRoute>
             <MyEquipList />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:2500/products/${params.email}`),
       },
 
       {
