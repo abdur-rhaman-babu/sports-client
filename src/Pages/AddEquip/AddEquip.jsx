@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const AddEquip = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate()
   const handleAddEquipment = (e) => {
     e.preventDefault();
     const form = e.target;
-    const photo = form.photo.vlaue;
+    const photo = form.photo.value;
     const item_name = form.name.value;
     const category = form.category.value;
     const price = form.price.value;
@@ -44,6 +46,7 @@ const AddEquip = () => {
     .then(res=> res.json())
     .then(data=>{
         console.log(data)
+        navigate(-1)
     })
   };
   return (
