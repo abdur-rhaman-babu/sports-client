@@ -8,6 +8,7 @@ import Login from "./../Pages/Login/Login";
 import Register from "./../Pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ViewDetails from "../components/ViewDetails/ViewDetails";
+import UpdateList from "../components/UpdateList/UpdateList";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,11 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:2500/products/${params.id}`),
       },
+      {
+        path:'/updateList/:email/:id',
+        element:<UpdateList/>,
+        loader: ({params}) => fetch(`http://localhost:2500/products/email/${params.email}/${params.id}`)
+      }
     ],
   },
 ]);

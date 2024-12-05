@@ -1,5 +1,6 @@
 import { FaRegEdit } from "react-icons/fa";
 import { FaDeleteLeft } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const EquipCard = ({ product, products, setProducts }) => {
   const {
@@ -82,9 +83,12 @@ const EquipCard = ({ product, products, setProducts }) => {
           <p>Submitted by: {user_name}</p>
         </div>
         <div className="flex gap-3 items-center mt-3">
-          <button className="text-green-400">
-            <FaRegEdit size={30} />
-          </button>
+          <Link to={`/updateList/${user_email}/${_id}`}>
+            {" "}
+            <button className="text-green-400">
+              <FaRegEdit size={30} />
+            </button>
+          </Link>
           <button
             onClick={() => handleDeleteCard(_id, user_email)}
             className="text-red-600"
