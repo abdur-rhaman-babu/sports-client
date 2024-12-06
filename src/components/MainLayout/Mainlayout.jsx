@@ -4,9 +4,9 @@ import Footer from "../Footer/Footer";
 
 const Mainlayout = () => {
   return (
-    <div>
+    <div className="dark:bg-black dark:text-white">
       <Navbar />
-      <div className="max-w-7xl mx-5 lg:mx-auto mt-20 min-h-[58vh]">
+      <div className="max-w-7xl mx-5 lg:mx-auto pt-20 min-h-[58vh] dark:bg-black dark:text-white">
         <Outlet />
       </div>
       <Footer/>

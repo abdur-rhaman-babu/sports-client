@@ -61,12 +61,12 @@ const Register = () => {
   };
   return (
     <div className="hero min-h-[85vh] -z-50">
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div className="card dark:border-2 w-full max-w-sm shrink-0 shadow-2xl">
         <form onSubmit={handleRegister} className="card-body">
           <h1 className="text-2xl font-bold text-center">Register now!</h1>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Name</span>
+              <span className="label-text dark: text-white">Name</span>
             </label>
             <input
               type="text"
@@ -78,7 +78,7 @@ const Register = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text dark: text-white">Email</span>
             </label>
             <input
               type="email"
@@ -90,7 +90,7 @@ const Register = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Photo URL</span>
+              <span className="label-text dark: text-white">Photo URL</span>
             </label>
             <input
               type="text"
@@ -102,7 +102,7 @@ const Register = () => {
           </div>
           <div className="form-control relative">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text dark: text-white">Password</span>
             </label>
             <input
               type={showPassword ? "text" : "password"}

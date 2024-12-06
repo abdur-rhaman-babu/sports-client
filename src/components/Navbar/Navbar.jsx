@@ -1,15 +1,24 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/image/logo.png";
-import { CiLight } from "react-icons/ci";
+import { CiDark, CiLight } from "react-icons/ci";
 import { FaBars } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import 'react-tooltip/dist/react-tooltip.css'
 import { toast } from "react-toastify";
+import { MdDarkMode } from "react-icons/md";
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
-  // console.log(user?.email)
+  const [theme, setTheme] = useState(false)
+  
+  useEffect(()=>{
+    if(theme){
+      document.documentElement.classList.add('dark')
+    }else{
+      document.documentElement.classList.remove('dark')
+    }
+  },[theme])
 
   const handleSignOut = () => {
     logoutUser()
@@ -21,7 +30,7 @@ const Navbar = () => {
       });
   };
   return (
-    <div className="navbar bg-base-100 shadow-lg md:px-5 lg:px-16 z-50 fixed top-0 left-0 right-0">
+    <div className="navbar bg-base-100 dark:border-b-2 dark:border-white dark:bg-black dark:text-white shadow-lg md:px-5 lg:px-16 z-50 fixed top-0 left-0 right-0">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -29,7 +38,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 dark:border-b-2 dark:border-white dark:bg-black dark:text-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
               <NavLink to="/">Home</NavLink>
@@ -129,8 +138,10 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <button>
-          <CiLight size={35} />
+        <button onClick={()=> setTheme(!theme)}>
+          {
+            theme ?  <CiLight size={35} /> : <CiDark size={35}/>
+          }
         </button>
       </div>
     </div>

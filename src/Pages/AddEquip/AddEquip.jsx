@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const AddEquip = () => {
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleAddEquipment = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -32,34 +32,34 @@ const AddEquip = () => {
       rating,
       user_email,
       user_name,
-      description
+      description,
     };
 
-    console.log(product)
+    console.log(product);
 
-    fetch('http://localhost:2500/products',{
-        method:'POST',
-        headers:{
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(product)
+    fetch("http://localhost:2500/products", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
     })
-    .then(res=> res.json())
-    .then(data=>{
-        console.log(data)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
         Swal.fire({
           title: "success",
           text: "Equipment successfully added",
-          icon: "success"
+          icon: "success",
         });
-        navigate(-1)
-    })
+        navigate(-1);
+      });
   };
   return (
     <div className="my-10">
       <form
         onSubmit={handleAddEquipment}
-        className="md:w-3/4 lg:2/4 mx-auto bg-gray-300 p-5"
+        className="md:w-3/4 lg:2/4 mx-auto bg-white shadow-lg p-5 dark:border-2 dark:border-white dark:bg-black dark:text-white"
       >
         <h1 className="text-center text-2xl font-bold mb-3">Add Equipment</h1>
         <div className="grid lg:grid-cols-2 gap-3">
@@ -67,7 +67,7 @@ const AddEquip = () => {
             <label className="text-xl">Image</label>
             <br />
             <input
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="photo"
               placeholder="photo url"
@@ -78,7 +78,7 @@ const AddEquip = () => {
             <label className="text-xl">Item Name</label>
             <br />
             <input
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="name"
               placeholder="Item name"
@@ -89,7 +89,7 @@ const AddEquip = () => {
             <label className="text-xl">Category</label>
             <br />
             <input
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="category"
               placeholder="category"
@@ -100,7 +100,7 @@ const AddEquip = () => {
             <label className="text-xl">Price</label>
             <br />
             <input
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="price"
               placeholder="price"
@@ -111,7 +111,7 @@ const AddEquip = () => {
             <label className="text-xl">Customization</label>
             <br />
             <input
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="customization"
               placeholder="customization"
@@ -121,7 +121,7 @@ const AddEquip = () => {
             <label className="text-xl">Processing Time</label>
             <br />
             <input
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="processing_time"
               placeholder="processing time"
@@ -133,7 +133,7 @@ const AddEquip = () => {
             <label className="text-xl">Stock Status</label>
             <br />
             <select
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               name="stock_status"
               id=""
               required
@@ -146,7 +146,7 @@ const AddEquip = () => {
             <label className="text-xl">Rating</label>
             <br />
             <input
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="rating"
               placeholder="rating"
@@ -156,8 +156,8 @@ const AddEquip = () => {
           <div>
             <label className="text-xl">User Email</label>
             <br />
-            <input
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+            <input 
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="user_email"
               placeholder="user email"
@@ -169,7 +169,7 @@ const AddEquip = () => {
             <label className="text-xl">User Name</label>
             <br />
             <input
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="user_name"
               placeholder="user name"
@@ -182,14 +182,14 @@ const AddEquip = () => {
           <label className="text-xl">Description</label>
           <br />
           <textarea
-            className="w-full p-2 resize-none h-24 outline-none"
+            className="w-full p-2 resize-none h-24 outline-none dark:text-black"
             name="description"
             id=""
             placeholder="Description"
           ></textarea>
         </div>
         <input
-          className="w-full bg-black py-2 mt-4 text-white font-bold cursor-pointer"
+          className="w-full bg-blue-600 py-2 mt-4 text-white font-bold cursor-pointer"
           type="submit"
           value="Add Eauipment"
         />

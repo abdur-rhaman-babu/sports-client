@@ -76,7 +76,7 @@ const UpdateList = () => {
     <div className="my-10">
       <form
         onSubmit={handleUpdateEquipment}
-        className="md:w-3/4 lg:2/4 mx-auto bg-gray-300 p-5"
+        className="md:w-3/4 lg:2/4 mx-auto bg-gray-300 p-5 dark:border-2 dark:border-white dark:bg-black dark:text-white"
       >
         <h1 className="text-center text-2xl font-bold mb-3">Update Equipment</h1>
         <div className="grid lg:grid-cols-2 gap-3">
@@ -85,7 +85,7 @@ const UpdateList = () => {
             <br />
             <input
               defaultValue={photo}
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="photo"
               placeholder="photo url"
@@ -97,7 +97,7 @@ const UpdateList = () => {
             <br />
             <input
               defaultValue={item_name}
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="name"
               placeholder="Item name"
@@ -109,7 +109,7 @@ const UpdateList = () => {
             <br />
             <input
               defaultValue={category}
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="category"
               placeholder="category"
@@ -121,7 +121,7 @@ const UpdateList = () => {
             <br />
             <input
               defaultValue={price}
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="price"
               placeholder="price"
@@ -133,7 +133,7 @@ const UpdateList = () => {
             <br />
             <input
               defaultValue={customization}
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="customization"
               placeholder="customization"
@@ -144,7 +144,7 @@ const UpdateList = () => {
             <br />
             <input
               defaultValue={processing_time}
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="processing_time"
               placeholder="processing time"
@@ -157,7 +157,7 @@ const UpdateList = () => {
             <br />
             <select
               // defaultValue={stock_status}
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               name="stock_status"
               id=""
               required
@@ -171,7 +171,7 @@ const UpdateList = () => {
             <br />
             <input
               defaultValue={rating}
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="rating"
               placeholder="rating"
@@ -182,7 +182,7 @@ const UpdateList = () => {
             <label className="text-xl">User Email</label>
             <br />
             <input
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="user_email"
               placeholder="user email"
@@ -194,7 +194,7 @@ const UpdateList = () => {
             <label className="text-xl">User Name</label>
             <br />
             <input
-              className="border p-2 mt-3 rounded-lg outline-none w-full"
+              className="border p-2 mt-3 rounded-lg outline-none w-full dark:text-black"
               type="text"
               name="user_name"
               placeholder="user name"
@@ -208,14 +208,14 @@ const UpdateList = () => {
           <br />
           <textarea
             defaultValue={description}
-            className="w-full p-2 resize-none h-24 outline-none"
+            className="w-full p-2 resize-none h-24 outline-none dark:text-black"
             name="description"
             id=""
             placeholder="Description"
           ></textarea>
         </div>
         <input
-          className="w-full bg-black py-2 mt-4 text-white font-bold cursor-pointer"
+          className="w-full bg-blue-600 py-2 mt-4 text-white font-bold cursor-pointer"
           type="submit"
           value="Update Eauipment"
         />
