@@ -1,7 +1,10 @@
+import { FaFacebookSquare, FaInstagramSquare, FaLinkedin, FaTwitter } from "react-icons/fa";
+
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <div className="bg-base-200 dark:bg-black dark:text-white dark:border-t-2 dark:border-white">
-      <footer className="footer footer-center rounded p-10">
+      {/* <footer className="footer footer-center rounded p-10">
         <nav className="grid grid-flow-col gap-4">
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
@@ -51,7 +54,37 @@ const Footer = () => {
             Industries Ltd
           </p>
         </aside>
-      </footer>
+      </footer> */}
+       <footer className="text-black py-8">
+      <div className="container mx-auto px-4 text-center">
+      
+        <h1 className="text-2xl font-semibold mb-2 dark:text-white">EquiSports</h1>
+       
+        <p className="text-sm mb-4 dark:text-white">© {currentYear} EquiSports All rights reserved.</p>
+        
+        
+        <div className="space-y-2">
+          <p className="dark:text-white">Email: <a href="mailto:support@websitename.com" className="text-blue-400 hover:underline">support@EquiSports.com</a></p>
+          <p className="dark:text-white">Phone: <a href="tel:+15551234567" className="text-blue-400 hover:underline">+1 (555) 123-4567</a></p>
+        </div>
+        
+        
+        <div className="flex justify-center mt-4 space-x-4">
+          <a href="https://www.facebook.com/websitename" target="_blank" rel="noopener noreferrer" className="text-blue-500">
+            <i className="fab fa-facebook-f"></i> <FaFacebookSquare  size={30}/>
+          </a>
+          <a href="https://www.instagram.com/websitename" target="_blank" rel="noopener noreferrer" className="text-pink-500">
+            <i className="fab fa-instagram"></i> <FaInstagramSquare  size={30}/>
+          </a>
+          <a href="https://twitter.com/websitename" target="_blank" rel="noopener noreferrer" className="text-blue-400">
+            <i className="fab fa-twitter"></i> <FaTwitter size={30}/>
+          </a>
+          <a href="https://linkedin.com/company/websitename" target="_blank" rel="noopener noreferrer" className="text-blue-600">
+            <i className="fab fa-linkedin-in"></i> <FaLinkedin size={30}/>
+          </a>
+        </div>
+      </div>
+    </footer>
     </div>
   );
 };

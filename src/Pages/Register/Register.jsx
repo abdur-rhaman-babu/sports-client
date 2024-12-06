@@ -7,20 +7,26 @@ import { toast } from "react-toastify";
 const Register = () => {
   // const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser, setUser, setLoading, userUpdateProfile, error, setError } =
-    useContext(AuthContext);
+  const {
+    createUser,
+    setUser,
+    loading,
+    setLoading,
+    userUpdateProfile,
+    error,
+    setError,
+  } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
-    
-    setLoading(true)
+
+    setLoading(true);
 
     const form = e.target;
     const name = form.name.value;
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-
 
     const lowerCase = /[a-z]/;
     if (!lowerCase.test(password)) {
@@ -50,12 +56,12 @@ const Register = () => {
         userUpdateProfile(profile);
         navigate("/");
         toast.success("registered successfully");
-        setLoading(false)
+        setLoading(false);
       })
       .catch((err) => {
         if (err) {
           toast.error("User already exsist");
-          setLoading(true)
+          setLoading(true);
         }
       });
   };
@@ -120,7 +126,13 @@ const Register = () => {
           </div>
           <p className="text-red-600">{error}</p>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Register</button>
+            <button className="btn btn-primary">
+              {loading ? (
+                <span className="loading loading-spinner loading-md"></span>
+              ) : (
+                " Register"
+              )}
+            </button>
           </div>
           <p>
             Create Account?{" "}

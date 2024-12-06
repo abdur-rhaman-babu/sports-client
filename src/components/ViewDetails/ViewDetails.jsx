@@ -18,7 +18,7 @@ const ViewDetails = () => {
     description,
   } = product;
   return (
-    <div className="flex flex-col my-10 mt-24 p-5 md:flex-row border rounded-lg shadow-lg overflow-hidden bg-white max-w-2xl mx-auto">
+    <div className="flex relative flex-col my-10 mt-24 p-5 md:flex-row border rounded-lg shadow-lg overflow-hidden bg-white dark:bg-black max-w-2xl mx-auto">
       <div className="w-full md:w-1/3">
         <img
           src={photo}
@@ -28,21 +28,21 @@ const ViewDetails = () => {
       </div>
 
       <div className="flex flex-col p-4 w-full md:w-2/3">
-        <h2 className="text-xl font-bold text-gray-800 mb-2">{item_name}</h2>
-        <p className="text-sm text-gray-500">Category: {category}</p>
-        <p className="text-lg font-semibold text-green-600 mb-1">
+        <h2 className="text-xl font-bold text-gray-800 mb-2 dark:text-white">{item_name}</h2>
+        <p className="text-sm text-gray-500 dark:text-white">Category: {category}</p>
+        <p className="text-lg font-semibold text-green-600 mb-1 dark:text-white">
           Price: ${price}
         </p>
 
         
-          <p className="text-sm text-gray-700 mb-1">
+          <p className="text-sm text-gray-700 mb-1 dark:text-white">
             Customization: <span className="text-blue-600">{customization}</span>
           </p>
         
 
-        <p className="text-sm text-gray-700 mb-1">
+        <p className="text-sm text-gray-700 mb-1 dark:text-white">
           Processing Time:{" "}
-          <span className="text-gray-800">{processing_time} days</span>
+          <span className="text-gray-800 dark:text-white">{processing_time} days</span>
         </p>
 
         <p
@@ -65,10 +65,12 @@ const ViewDetails = () => {
           <span className="ml-2 text-sm text-gray-600">({rating}/5)</span>
         </div>
           <p><span className="font-bold">Description:</span> {description}</p>
-        <div className="mt-4 text-sm text-gray-500">
+        <div className="mt-4 text-sm text-gray-500 dark:text-white">
           <p>Submitted by: {user_name}</p>
         </div>
-        
+        <div onClick={()=> navigate(-1)} className="absolute dark:text-white top-5 right-5 cursor-pointer">
+        <FaRegTimesCircle size={30} />
+        </div>
       </div>
     </div>
   );

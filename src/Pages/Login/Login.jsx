@@ -5,8 +5,9 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { loginUser, loginWithGoogle, setLoading, setUser } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const { loginUser, loginWithGoogle, loading, setLoading, setUser } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -14,32 +15,32 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    setLoading(true)
+    setLoading(true);
 
     loginUser(email, password)
       .then((result) => {
-        console.log(result.user)
+        console.log(result.user);
         setUser(result.user);
-        setLoading(false)
-        navigate('/')
+        setLoading(false);
+        navigate("/");
         toast.success("Logged In successfull");
       })
       .catch((err) => {
-          if(err){
-            toast.error("Invalid email or password");
-            setLoading(false)
-          }
+        if (err) {
+          toast.error("Invalid email or password");
+          setLoading(false);
+        }
       });
   };
 
   const handleGoogleLogin = () => {
     loginWithGoogle()
-    .then((result) => {
-      console.log(result.user)
-      setUser(result.user);
-      navigate('/')
-      toast.success("Logged In successfull");
-    })
+      .then((result) => {
+        console.log(result.user);
+        setUser(result.user);
+        navigate("/");
+        toast.success("Logged In successfull");
+      })
       .catch((error) => {
         console.log("Error", error);
       });
@@ -74,7 +75,10 @@ const Login = () => {
               required
             />
             <label className="label">
-              <a href="#" className="label-text-alt link link-hover dark: text-white">
+              <a
+                href="#"
+                className="label-text-alt link link-hover dark: text-white"
+              >
                 Forgot password?
               </a>
             </label>
@@ -89,7 +93,13 @@ const Login = () => {
             <span className="font-semibold">Login with Google</span>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn btn-primary">
+              {loading ? (
+                <span className="loading loading-spinner loading-md"></span>
+              ) : (
+                "Login"
+              )}
+            </button>
           </div>
           <p>
             Create Account?{" "}
