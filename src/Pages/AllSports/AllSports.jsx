@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-awesome-reveal";
 import { GrView } from "react-icons/gr";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -10,6 +11,7 @@ const AllSports = () => {
       <h2 className="font-bold text-3xl mb-5">ALL Equipment List</h2>
       <p>All Equipment List showcases all your personal gear, tailored for easy management. <br /> Track, view, and update equipment details in one convenient place.</p>
       </div>
+      <Fade cascade damping={0.1}>
       <div className="overflow-x-auto mb-5 dark:border rounded-lg">
         <table className="table">
           <thead className="dark:text-white">
@@ -40,6 +42,7 @@ const AllSports = () => {
           </tbody>
         </table>
       </div>
+      </Fade>
     </div>
   );
 };

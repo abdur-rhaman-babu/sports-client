@@ -1,3 +1,5 @@
+import { Fade } from "react-awesome-reveal";
+
 const Category = () => {
   return (
     <div className="my-10">
@@ -6,6 +8,7 @@ const Category = () => {
         Welcome to our website. Here you can get any sports accssories easily.
         Have you nice visit. <br /> You can buy any product for online.{" "}
       </p>
+      <Fade cascade damping={0.1}>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
         <div className="border p-2 rounded-lg shadow-lg">
           <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
@@ -38,6 +41,7 @@ const Category = () => {
           />
         </div>
       </div>
+      </Fade>
     </div>
   );
 };

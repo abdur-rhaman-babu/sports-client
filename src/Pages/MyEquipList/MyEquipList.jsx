@@ -15,12 +15,12 @@ const MyEquipList = () => {
   return (
     <div>
       <div className="text-center mt-5">
-        <Fade>
+        <Fade cascade damping={0.1}>
         <h2 className="font-bold text-3xl mb-5">My Equipment List</h2>
         <p>My Equipment List showcases all your personal gear, tailored for easy management. <br /> Track, view, and update equipment details in one convenient place.</p>
         </Fade>
       </div>
-      <Slide>
+      <Fade cascade damping={0.1}>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 my-10">
         {products.map((product) => (
           <EquipCard
@@ -31,7 +31,7 @@ const MyEquipList = () => {
           />
         ))}
       </div>
-      </Slide>
+      </Fade>
     </div>
   );
 };
