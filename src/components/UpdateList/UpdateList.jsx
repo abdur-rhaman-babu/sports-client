@@ -76,7 +76,7 @@ const UpdateList = () => {
     <div className="my-10">
       <form
         onSubmit={handleUpdateEquipment}
-        className="md:w-3/4 lg:2/4 mx-auto bg-gray-300 p-5 dark:border-2 dark:border-white dark:bg-black dark:text-white"
+        className="md:w-3/4 lg:2/4 mx-auto bg-white shadow-lg p-5 dark:border-2 dark:border-white dark:bg-black dark:text-white"
       >
         <h1 className="text-center text-2xl font-bold mb-3">Update Equipment</h1>
         <div className="grid lg:grid-cols-2 gap-3">

@@ -6,9 +6,13 @@ const AllSports = () => {
   const products = useLoaderData();
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className="text-center my-5">
+      <h2 className="font-bold text-3xl mb-5">ALL Equipment List</h2>
+      <p>All Equipment List showcases all your personal gear, tailored for easy management. <br /> Track, view, and update equipment details in one convenient place.</p>
+      </div>
+      <div className="overflow-x-auto mb-5 dark:border rounded-lg">
         <table className="table">
-          <thead>
+          <thead className="dark:text-white">
             <tr>
               <th></th>
               <th>Name</th>
