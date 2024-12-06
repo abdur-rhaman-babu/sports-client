@@ -11,8 +11,7 @@ const AllSports = () => {
     fetch("http://localhost:2500/products")
       .then((res) => res.json())
       .then((data) => {
-        const sortedProduct = [...data].sort((a, b) => a.price - b.price);
-        setProducts(sortedProduct);
+        setProducts(data);
       });
   }, []);
   
