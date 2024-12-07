@@ -1,8 +1,9 @@
-# React + Vite
+# EquiSport
+# Live Site Link: https://sports-equipment-3d812.web.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Five bullet point:
+**1.Only logged in user visit all information this website**
+**2.If user click view details icon or button, he can able to see in details**
+**3.All data are showed in all equipment page**
+**4.Implemented CRUD operation**
+**5.User can do CRUD operation only if he logged in**
