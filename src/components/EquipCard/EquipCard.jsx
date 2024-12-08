@@ -19,7 +19,7 @@ const EquipCard = ({ product, products, setProducts }) => {
   } = product;
   //   console.log(product)
   const handleDeleteCard = (id, email) => {
-    console.log(id, email);
+    // console.log(id, email);
 
     Swal.fire({
         title: "Are you sure?",
@@ -31,12 +31,12 @@ const EquipCard = ({ product, products, setProducts }) => {
         confirmButtonText: "Yes, delete it!"
       }).then((result) => {
         if (result.isConfirmed) {
-        fetch(`http://localhost:2500/products/email/${email}/${id}`, {
+        fetch(`https://sports-equipment-server-beta.vercel.app/products/email/${email}/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.deletedCount) {
               const remaining = products.filter((product) => product._id !== id);
               setProducts(remaining);

@@ -3,6 +3,7 @@ import Banner from "../../components/Banner/Banner";
 import Category from "../../components/Category/Category";
 import PopularProduct from "../../components/PopularProduct/PopularProduct";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import AboutUs from "../../components/AboutUs/AboutUs";
 
 const Home = () => {
   const products = useLoaderData();
@@ -25,6 +26,7 @@ const Home = () => {
         </div>
         <Category />
         <PopularProduct />
+        <AboutUs/>
       </div>
     </div>
   );

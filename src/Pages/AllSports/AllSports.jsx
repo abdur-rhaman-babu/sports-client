@@ -8,7 +8,7 @@ const AllSports = () => {
   const [products, setProducts] = useState(loadedProducts);
 
   useEffect(() => {
-    fetch("http://localhost:2500/products")
+    fetch("https://sports-equipment-server-beta.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

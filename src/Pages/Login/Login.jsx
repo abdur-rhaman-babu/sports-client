@@ -19,7 +19,7 @@ const Login = () => {
 
     loginUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         setUser(result.user);
         setLoading(false);
         navigate("/");
@@ -36,13 +36,13 @@ const Login = () => {
   const handleGoogleLogin = () => {
     loginWithGoogle()
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         setUser(result.user);
         navigate("/");
         toast.success("Logged In successfull");
       })
       .catch((error) => {
-        console.log("Error", error);
+        // console.log("Error", error);
       });
   };
 

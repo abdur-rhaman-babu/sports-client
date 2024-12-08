@@ -20,12 +20,12 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: ()=> fetch('http://localhost:2500/products-limited')
+        loader: ()=> fetch('https://sports-equipment-server-beta.vercel.app/products-limited')
       },
       {
         path: "/allSportsEquip",
         element: <AllSports />,
-        loader: () => fetch("http://localhost:2500/products"),
+        loader: () => fetch("https://sports-equipment-server-beta.vercel.app/products"),
       },
       {
         path: "/addEquip",
@@ -60,12 +60,12 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:2500/products/${params.id}`),
+          fetch(`https://sports-equipment-server-beta.vercel.app/products/${params.id}`),
       },
       {
         path:'/updateList/:email/:id',
         element:<UpdateList/>,
-        loader: ({params}) => fetch(`http://localhost:2500/products/email/${params.email}/${params.id}`)
+        loader: ({params}) => fetch(`https://sports-equipment-server-beta.vercel.app/products/email/${params.email}/${params.id}`)
       }
     ],
   },

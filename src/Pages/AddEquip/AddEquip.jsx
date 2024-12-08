@@ -35,9 +35,9 @@ const AddEquip = () => {
       description,
     };
 
-    console.log(product);
+    // console.log(product);
 
-    fetch("http://localhost:2500/products", {
+    fetch("https://sports-equipment-server-beta.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -46,7 +46,7 @@ const AddEquip = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         Swal.fire({
           title: "success",
           text: "Equipment successfully added",
