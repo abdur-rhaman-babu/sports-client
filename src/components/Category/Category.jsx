@@ -73,7 +73,7 @@ const Category = () => {
           </div>
           <div className="border p-2 rounded-lg shadow-lg h-[300px]">
             <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
-              Dumble set
+              Fitness
             </h1>
             <img
               className="h-[230px] w-full object-cover"
@@ -83,7 +83,7 @@ const Category = () => {
           </div>
           <div className="border p-2 rounded-lg shadow-lg h-[300px]">
             <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
-             Swim Goggles
+             Swimming
             </h1>
             <img
               className="h-[230px] w-full object-cover"

@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 import slider_1 from "../../assets/image/slider_1.jpg";
-import slider_2 from "../../assets/image/slider_2.png";
+import slider_2 from "../../assets/image/slider_2.jpeg";
 import slider_3 from "../../assets/image/slider_3.jpg";
 import slider_4 from "../../assets/image/slider_4.jpg";
 

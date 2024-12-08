@@ -1,13 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const { loginUser, loginWithGoogle, loading, setLoading, setUser } =
     useContext(AuthContext);
   const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -19,7 +22,6 @@ const Login = () => {
 
     loginUser(email, password)
       .then((result) => {
-        // console.log(result.user);
         setUser(result.user);
         setLoading(false);
         navigate("/");
@@ -36,7 +38,6 @@ const Login = () => {
   const handleGoogleLogin = () => {
     loginWithGoogle()
       .then((result) => {
-        // console.log(result.user);
         setUser(result.user);
         navigate("/");
         toast.success("Logged In successfull");
@@ -63,12 +64,18 @@ const Login = () => {
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control relative">
             <label className="label">
               <span className="label-text dark: text-white">Password</span>
             </label>
+            <div
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute top-12 mt-1 right-3"
+            >
+              {showPassword ? <IoEye /> : <IoEyeOff />}
+            </div>
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               name="password"
               placeholder="password"
               className="input input-bordered"

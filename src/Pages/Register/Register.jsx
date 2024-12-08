@@ -31,17 +31,20 @@ const Register = () => {
     const lowerCase = /[a-z]/;
     if (!lowerCase.test(password)) {
       setError("Password must contain at least one lowercase letter");
+      setLoading(false)
       return;
     }
 
     const upperCase = /[A-Z]/;
     if (!upperCase.test(password)) {
       setError("Password must contain at least one uppercase letter");
+      setLoading(false)
       return;
     }
 
     if (password.length < 6) {
       setError("Password must at least 6 character");
+      setLoading(false)
       return;
     }
 
@@ -49,7 +52,7 @@ const Register = () => {
       displayName: name,
       photoURL: photo,
     };
-    // console.log(user);
+    
     createUser(email, password)
       .then((result) => {
         setUser(result.user);
@@ -61,7 +64,7 @@ const Register = () => {
       .catch((err) => {
         if (err) {
           toast.error("User already exsist");
-          setLoading(true);
+          setLoading(false);
         }
       });
   };
