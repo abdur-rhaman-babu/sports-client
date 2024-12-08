@@ -64,13 +64,12 @@ const UpdateList = () => {
         if(data.modifiedCount > 0){
             navigate('/myEquipList')
             Swal.fire({
-                title: "success",
+                title: "Updated",
                 text: "Equipment successfully updated",
                 icon: "success"
               });
         }
     })
-    // console.log(updateProduct);
   };
   return (
     <div className="my-10">

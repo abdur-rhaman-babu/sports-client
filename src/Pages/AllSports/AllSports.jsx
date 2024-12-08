@@ -14,7 +14,6 @@ const AllSports = () => {
         setProducts(data);
       });
   }, []);
-  
 
   const handleSortByPrice = () => {
     const sortedProduct = [...products].sort((a, b) => a.price - b.price);
@@ -39,7 +38,6 @@ const AllSports = () => {
         >
           Sort by Price(Ascending)
         </button>
-        
       </div>
       <Fade cascade damping={0.1}>
         <div className="overflow-x-auto mb-5 dark:border rounded-lg">

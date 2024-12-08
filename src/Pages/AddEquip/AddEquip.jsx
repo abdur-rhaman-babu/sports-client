@@ -48,7 +48,7 @@ const AddEquip = () => {
       .then((data) => {
         // console.log(data);
         Swal.fire({
-          title: "success",
+          title: "Added",
           text: "Equipment successfully added",
           icon: "success",
         });
