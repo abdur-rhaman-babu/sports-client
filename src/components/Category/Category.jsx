@@ -8,39 +8,90 @@ const Category = () => {
         Welcome to our website. Here you can get any sports accssories easily.
         Have you nice visit. <br /> You can buy any product for online.{" "}
       </p>
+
       <Fade cascade damping={0.1}>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div className="border p-2 rounded-lg shadow-lg">
-          <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
-            Cricket
-          </h1>
-          <img className="h-[230px] w-full" src="https://i.ibb.co.com/HKGSTj0/cricket-category.jpg" alt="" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="border p-2 rounded-lg shadow-lg">
+            <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
+              Cricket
+            </h1>
+            <img
+              className="h-[230px] w-full"
+              src="https://i.ibb.co.com/HKGSTj0/cricket-category.jpg"
+              alt=""
+            />
+          </div>
+          <div className="border p-2 rounded-lg shadow-lg">
+            <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
+              Football
+            </h1>
+            <img
+              className="h-[230px] w-full"
+              src="https://i.ibb.co.com/yn9WVYG/Football-category.jpg"
+              alt=""
+            />
+          </div>
+          <div className="border p-2 rounded-lg shadow-lg">
+            <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
+              Tannis
+            </h1>
+            <img
+              className="h-[230px] w-full"
+              src="https://i.ibb.co.com/rdKRMSq/tannis-category.jpg"
+              alt=""
+            />
+          </div>
+          <div className="border p-2 rounded-lg shadow-lg h-[300px]">
+            <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
+              Bascket Ball
+            </h1>
+            <img
+              className="h-[230px] w-full object-cover"
+              src="https://i.ibb.co.com/cCVQXV8/bascketball-category.jpg"
+              alt=""
+            />
+          </div>
+          <div className="border p-2 rounded-lg shadow-lg h-[300px]">
+            <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
+              Baseball
+            </h1>
+            <img
+              className="h-[230px] w-full object-cover"
+              src="https://i.ibb.co.com/GRR0S5m/baseball.jpg"
+              alt=""
+            />
+          </div>
+          <div className="border p-2 rounded-lg shadow-lg h-[300px]">
+            <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
+              Skate
+            </h1>
+            <img
+              className="h-[230px] w-full object-cover"
+              src="https://i.ibb.co.com/GsQJCJL/skate.jpg"
+              alt=""
+            />
+          </div>
+          <div className="border p-2 rounded-lg shadow-lg h-[300px]">
+            <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
+              Dumble set
+            </h1>
+            <img
+              className="h-[230px] w-full object-cover"
+              src="https://i.ibb.co.com/bzLjMyC/dumble-set.jpg"
+              alt=""
+            />
+          </div>
+          <div className="border p-2 rounded-lg shadow-lg h-[300px]">
+            <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
+             Swim Goggles
+            </h1>
+            <img
+              className="h-[230px] w-full object-cover"
+              src="https://i.ibb.co.com/TRc2fQY/goggles.jpg"
+              alt=""
+            />
+          </div>
         </div>
-        <div className="border p-2 rounded-lg shadow-lg">
-          <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
-            Football
-          </h1>
-          <img className="h-[230px] w-full" src="https://i.ibb.co.com/yn9WVYG/Football-category.jpg" alt="" />
-        </div>
-        <div className="border p-2 rounded-lg shadow-lg">
-          <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
-            Tannis
-          </h1>
-          <img className="h-[230px] w-full"
-            src="https://i.ibb.co.com/rdKRMSq/tannis-category.jpg"
-            alt=""
-          />
-        </div>
-        <div className="border p-2 rounded-lg shadow-lg h-[300px]">
-          <h1 className="text-2xl font-bold text-center bg-blue-600 text-white mb-5">
-            Bascket Ball
-          </h1>
-          <img className="h-[230px] w-full object-cover"
-            src="https://i.ibb.co.com/cCVQXV8/bascketball-category.jpg"
-            alt=""
-          />
-        </div>
-      </div>
       </Fade>
     </div>
   );

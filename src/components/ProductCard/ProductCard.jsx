@@ -30,18 +30,12 @@ const ProductCard = ({ product }) => {
           <h2 className="text-xl font-bold text-gray-800 mb-2 dark:text-white">
             {item_name}
           </h2>
-          <p className="text-sm text-gray-500 dark:text-white">
-            Category: {category}
-          </p>
+         
           <p className="text-lg font-semibold text-green-600 mb-1 dark:text-white">
             Price: ${price}
           </p>
 
-          {customization && (
-            <p className="text-sm text-gray-700 mb-1 dark:text-white">
-              Customization: <span className="text-blue-600">Available</span>
-            </p>
-          )}
+          
 
           <p className="text-sm text-gray-700 mb-1 dark:text-white">
             Processing Time:{" "}
@@ -70,10 +64,6 @@ const ProductCard = ({ product }) => {
             <span className="ml-2 text-sm text-gray-600 dark:text-white">
               ({rating}/5)
             </span>
-          </div>
-
-          <div className="mt-4 text-sm text-gray-500 dark:text-white">
-            <p>Submitted by: {user_name}</p>
           </div>
           <Link to={`/viewDetails/${product._id}`}>
             <button className="font-bold bg-blue-600 p-2 mt-3 w-full text-white rounded-lg">
