@@ -8,10 +8,12 @@ const MyEquipList = () => {
   const [products, setProducts] = useState([]);
   // console.log(products)
   useEffect(() => {
-    fetch(`https://sports-equipment-server-beta.vercel.app/products/email/${user?.email}`)
+
+    fetch(`http://localhost:2500/myApplication/?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, [user]);
+        
+  }, [user.email]);
 
   return (
     <>

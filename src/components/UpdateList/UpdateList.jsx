@@ -51,7 +51,7 @@ const UpdateList = () => {
       description,
     };
 
-    fetch(`https://sports-equipment-server-beta.vercel.app/products/email/${user.email}/${_id}`,{
+    fetch(`http://localhost:2500/products/email/${user.email}/${_id}`,{
         method:'PUT',
         headers:{
             'content-type': 'application/json'
