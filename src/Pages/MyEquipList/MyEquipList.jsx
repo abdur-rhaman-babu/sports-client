@@ -3,16 +3,17 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import EquipCard from "../../components/EquipCard/EquipCard";
 import { Fade, Slide } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
+import axios from "axios";
 const MyEquipList = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
   // console.log(products)
   useEffect(() => {
-
-    fetch(`http://localhost:2500/myApplication?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-        
+    axios
+      .get(`http://localhost:2500/myApplication?email=${user?.email}`, {
+        withCredentials: true,
+      })
+      .then((res) => setProducts(res.data));
   }, [user.email]);
 
   return (
@@ -43,8 +44,14 @@ const MyEquipList = () => {
           </Fade>
         ) : (
           <div className="text-center my-5">
-            <p className="font-bold text-3xl">No data available for this user</p>
-            <Link to='/addEquip'><button className="p-2 border-2 my-5 rounded-lg">Go for add equipment</button></Link>
+            <p className="font-bold text-3xl">
+              No data available for this user
+            </p>
+            <Link to="/addEquip">
+              <button className="p-2 border-2 my-5 rounded-lg">
+                Go for add equipment
+              </button>
+            </Link>
           </div>
         )}
       </div>
