@@ -9,7 +9,7 @@ const MyEquipList = () => {
   // console.log(products)
   useEffect(() => {
 
-    fetch(`http://localhost:2500/myApplication/?email=${user?.email}`)
+    fetch(`http://localhost:2500/myApplication?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
         
