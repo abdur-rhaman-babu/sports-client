@@ -4,15 +4,14 @@ import EquipCard from "../../components/EquipCard/EquipCard";
 import { Fade, Slide } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import useAxiosSecure from "../../Context/useAxiosSecure";
 const MyEquipList = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
-  // console.log(products)
+  const axiosSecure = useAxiosSecure();
   useEffect(() => {
-    axios
-      .get(`http://localhost:2500/myApplication?email=${user?.email}`, {
-        withCredentials: true,
-      })
+    axiosSecure
+      .get(`/myApplication?email=${user?.email}`)
       .then((res) => setProducts(res.data));
   }, [user.email]);
 
