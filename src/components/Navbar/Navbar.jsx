@@ -52,6 +52,9 @@ const Navbar = () => {
             <li>
             <NavLink to="/myEquipList">My Equipment List</NavLink>
             </li>
+            <li>
+            <NavLink to="/fashions">Fashions</NavLink>
+            </li>
             <div>
               {user?.email ? (
                 <div className="">
@@ -104,6 +107,9 @@ const Navbar = () => {
           <li>
           <NavLink to="/myEquipList">My Equipment List</NavLink>  
           </li>
+          <li>
+            <NavLink to="/fashions">Fashions</NavLink>
+            </li>
           <div>
             {user?.email ? (
               <div className="flex items-center gap-2">

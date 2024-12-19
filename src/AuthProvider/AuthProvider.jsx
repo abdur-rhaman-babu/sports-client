@@ -59,20 +59,20 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
       setUser(currentuser);
-      console.log("captured user :", currentuser?.email);
+      // console.log("captured user :", currentuser?.email);
       if (currentuser?.email) {
         const user = { email: currentuser?.email };
         axios
           .post("http://localhost:2500/jwt", user, { withCredentials: true })
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             setLoading(false);
           });
       } else {
         axios
           .post("http://localhost:2500/logout", {}, { withCredentials: true })
           .then((res) => {
-            console.log("logout", res.data);
+            // console.log("logout", res.data);
             setLoading(false);
           });
       }

@@ -10,6 +10,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ViewDetails from "../components/ViewDetails/ViewDetails";
 import UpdateList from "../components/UpdateList/UpdateList";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import Fashions from "../Pages/Fashions/Fashions";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: ()=> fetch('http://localhost:2500/products-limited')
+      },
+      {
+        path:'/fashions',
+        element:<Fashions/>,
+        loader: ()=> fetch('http://localhost:2500/productsCount')
       },
       {
         path: "/allSportsEquip",
