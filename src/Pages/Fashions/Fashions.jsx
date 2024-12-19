@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Fashions = () => {
   const [fashions, setFashions] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPages] = useState(10);
   const axiosSecure = useAxiosSecure();
   const { count } = useLoaderData();
@@ -23,8 +23,20 @@ const Fashions = () => {
   const handleItemsPerPage = (e) => {
     const val = parseInt(e.target.value);
     setItemsPerPages(val);
-    setCurrentPage(0)
+    setCurrentPage(0);
   };
+
+  const handlePrevPage = ()=>{
+    if(currentPage > 0){
+        setCurrentPage(currentPage -1)
+    }
+  }
+
+  const handleNextPage = ()=>{
+    if(currentPage < pages.length - 1){
+        setCurrentPage(currentPage + 1)
+    }
+  }
 
   useEffect(() => {
     axiosSecure.get("/fashions").then((res) => setFashions(res.data));
@@ -39,17 +51,27 @@ const Fashions = () => {
       </div>
       <p>Current Page: {currentPage + 1}</p>
       <div className=" my-10 flex gap-5 justify-center">
+        <button onClick={handlePrevPage}
+          className={`border px-3 py-1 rounded-lg hover:bg-blue-600 hover:text-white`}
+        >
+          Prev
+        </button>
         {pages.map((page) => (
           <button
             className={`border px-3 py-1 rounded-lg
-                 ${currentPage === page ? 'bg-blue-600 text-white' : ''}
+                 ${currentPage === page ? "bg-blue-600 text-white" : ""}
                 hover:bg-blue-600 hover:text-white`}
-            onClick={()=> setCurrentPage(page)}
+            onClick={() => setCurrentPage(page)}
             key={page}
           >
             {page + 1}
           </button>
         ))}
+         <button onClick={handleNextPage}
+          className={`border px-3 py-1 rounded-lg hover:bg-blue-600 hover:text-white`}
+        >
+          Next
+        </button>
         <div className="border">
           <select
             className="outline-none"
