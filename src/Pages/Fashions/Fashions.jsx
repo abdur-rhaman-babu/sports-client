@@ -5,11 +5,11 @@ import { useLoaderData } from "react-router-dom";
 
 const Fashions = () => {
   const [fashions, setFashions] = useState([]);
+  const [itemsPerPage, setItemsPerPages] = useState(10);
   const axiosSecure = useAxiosSecure();
   const { count } = useLoaderData();
-  const itemsPerPage = 10;
   const numberOfPages = Math.ceil(count / itemsPerPage);
-  console.log(numberOfPages);
+  //   console.log(numberOfPages);
 
   //   const pages = [];
   //   for (let i = 0; i < numberOfPages; i++) {
@@ -17,7 +17,13 @@ const Fashions = () => {
   //   }
 
   const pages = [...Array(numberOfPages).keys()];
-  console.log(pages);
+  //   console.log(pages);
+
+  const handleItemsPerPage = (e) => {
+    const val = parseInt(e.target.value);
+    // console.log(e.target.value);
+    setItemsPerPages(val);
+  };
 
   useEffect(() => {
     axiosSecure.get("/fashions").then((res) => setFashions(res.data));
@@ -30,10 +36,29 @@ const Fashions = () => {
           <Fashion key={fashion._id} fashion={fashion} />
         ))}
       </div>
-      <div className="text-center my-10 flex gap-5 justify-center">
+      <div className=" my-10 flex gap-5 justify-center">
         {pages.map((page) => (
-          <button className="border px-3 py-1 rounded-lg hover:bg-black hover:text-white" key={page}>{page}</button>
+          <button
+            className="border px-3 py-1 rounded-lg hover:bg-black hover:text-white"
+            key={page}
+          >
+            {page + 1}
+          </button>
         ))}
+        <div className="border">
+          <select
+            className="outline-none"
+            value={itemsPerPage}
+            onChange={handleItemsPerPage}
+            name=""
+            id=""
+          >
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
+        </div>
       </div>
     </div>
   );
