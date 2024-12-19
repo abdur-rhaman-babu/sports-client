@@ -5,6 +5,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Fashions = () => {
   const [fashions, setFashions] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPages] = useState(10);
   const axiosSecure = useAxiosSecure();
   const { count } = useLoaderData();
@@ -21,8 +22,8 @@ const Fashions = () => {
 
   const handleItemsPerPage = (e) => {
     const val = parseInt(e.target.value);
-    // console.log(e.target.value);
     setItemsPerPages(val);
+    setCurrentPage(0)
   };
 
   useEffect(() => {
@@ -36,10 +37,14 @@ const Fashions = () => {
           <Fashion key={fashion._id} fashion={fashion} />
         ))}
       </div>
+      <p>Current Page: {currentPage + 1}</p>
       <div className=" my-10 flex gap-5 justify-center">
         {pages.map((page) => (
           <button
-            className="border px-3 py-1 rounded-lg hover:bg-black hover:text-white"
+            className={`border px-3 py-1 rounded-lg
+                 ${currentPage === page ? 'bg-blue-600 text-white' : ''}
+                hover:bg-blue-600 hover:text-white`}
+            onClick={()=> setCurrentPage(page)}
             key={page}
           >
             {page + 1}
