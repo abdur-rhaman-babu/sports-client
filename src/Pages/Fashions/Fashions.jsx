@@ -26,21 +26,23 @@ const Fashions = () => {
     setCurrentPage(0);
   };
 
-  const handlePrevPage = ()=>{
-    if(currentPage > 0){
-        setCurrentPage(currentPage -1)
+  const handlePrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
     }
-  }
+  };
 
-  const handleNextPage = ()=>{
-    if(currentPage < pages.length - 1){
-        setCurrentPage(currentPage + 1)
+  const handleNextPage = () => {
+    if (currentPage < pages.length - 1) {
+      setCurrentPage(currentPage + 1);
     }
-  }
+  };
 
   useEffect(() => {
-    axiosSecure.get("/fashions").then((res) => setFashions(res.data));
-  }, []);
+    axiosSecure
+      .get(`/fashions?page=${currentPage + 1}&size=${itemsPerPage}`)
+      .then((res) => setFashions(res.data));
+  }, [currentPage, itemsPerPage]);
   return (
     <div>
       <h1>Fashions:{fashions.length}</h1>
@@ -51,7 +53,8 @@ const Fashions = () => {
       </div>
       <p>Current Page: {currentPage + 1}</p>
       <div className=" my-10 flex gap-5 justify-center">
-        <button onClick={handlePrevPage}
+        <button
+          onClick={handlePrevPage}
           className={`border px-3 py-1 rounded-lg hover:bg-blue-600 hover:text-white`}
         >
           Prev
@@ -67,7 +70,8 @@ const Fashions = () => {
             {page + 1}
           </button>
         ))}
-         <button onClick={handleNextPage}
+        <button
+          onClick={handleNextPage}
           className={`border px-3 py-1 rounded-lg hover:bg-blue-600 hover:text-white`}
         >
           Next
