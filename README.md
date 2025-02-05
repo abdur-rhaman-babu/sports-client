@@ -4,12 +4,11 @@ Welcome to Sports Equipments, your ultimate destination for high-quality sports 
 <div align="center">
   <img height="420" src="https://i.postimg.cc/DZgHBNBC/sports.png"  />
 </div>
-# EquiSport
-# Live Site Link: https://sports-equipment-3d812.web.app/
 
-## Five bullet point:
-**1.Only logged in user visit all information this website**
-**2.If user click view details icon or button, he can able to see in details**
-**3.All data are showed in all equipment page**
-**4.Implemented CRUD operation**
-**5.User can do CRUD operation only if he logged in**
+# Key Features of Sports Equipments:
+■ Wide range of sports products (Cricket, Football, Volleyball, and more)
+■ Easy and secure online shopping experience
+■ High-quality equipment at competitive prices
+■ Fast and reliable delivery service
+■ User-friendly interface for seamless browsing
+■ Secure payment options for hassle-free transactions
