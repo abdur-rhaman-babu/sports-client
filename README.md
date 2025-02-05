@@ -32,6 +32,12 @@ Welcome to Sports Equipments, your ultimate destination for high-quality sports 
 
 ■ Toastyfy – For showing customizable toast notifications
 
+## to run the project locally.
+<pre> git clone https://github.com/abdur-rhaman-babu/sports-client.git </pre>
+<pre> cd (project folder) </pre>
+<pre> npm install </pre>
+<pre> npm run dev </pre>
+
 
 # website link: 
 ### https://sports-equipment-3d812.web.app/
