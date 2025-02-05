@@ -29,4 +29,4 @@ Welcome to Sports Equipments, your ultimate destination for high-quality sports 
 ■ Toastyfy – For showing customizable toast notifications
 ■ Framer Motion – For adding smooth animations and transitions
 
-### [**Your Link Text**](git clone)
+# website link: https://sports-equipment-3d812.web.app/
