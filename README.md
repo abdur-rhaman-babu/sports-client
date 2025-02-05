@@ -19,3 +19,12 @@ Welcome to Sports Equipments, your ultimate destination for high-quality sports 
 ■ Fast and reliable delivery service
 ■ User-friendly interface for seamless browsing
 ■ Secure payment options for hassle-free transactions
+
+
+# Dependencies Used:
+■ Axios – For making HTTP requests and handling API calls
+■ React Router – For navigating between different pages and routes
+■ Swiper – For creating responsive and interactive image sliders
+■ SweetAlert – For displaying beautiful alert popups
+■ Toastyfy – For showing customizable toast notifications
+■ Framer Motion – For adding smooth animations and transitions
