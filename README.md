@@ -5,6 +5,13 @@ Welcome to Sports Equipments, your ultimate destination for high-quality sports 
   <img height="420" src="https://i.postimg.cc/DZgHBNBC/sports.png"  />
 </div>
 
+
+
+# Main Technologies Used::
+■ React.js – For building a fast, interactive, and dynamic user interface
+■ Tailwind CSS – For efficient, customizable, and responsive styling
+
+
 # Key Features of Sports Equipments:
 ■ Wide range of sports products (Cricket, Football, Volleyball, and more)
 ■ Easy and secure online shopping experience
