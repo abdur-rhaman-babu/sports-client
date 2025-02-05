@@ -2,7 +2,7 @@
 Welcome to Sports Equipments, your ultimate destination for high-quality sports gear! We offer a wide range of products, including cricket, football, volleyball, and more, ensuring that every athlete finds what they need. Whether you're a professional player or a sports enthusiast, our platform makes shopping easy, fast, and reliable. Browse through our premium collection and get top-notch equipment at the best prices. With secure payments and quick delivery, Sports Equipments is your trusted online store for all things sports. Start shopping today and take your game to the next level!
 
 <div align="center">
-  <img height="420" src="https://i.postimg.cc/3JTFmtdd/github-profile-banner.png"  />
+  <img height="420" src="https://i.postimg.cc/DZgHBNBC/sports.png"  />
 </div>
 # EquiSport
 # Live Site Link: https://sports-equipment-3d812.web.app/
